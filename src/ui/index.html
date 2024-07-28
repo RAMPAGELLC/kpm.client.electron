@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KPM Client Installer</title>
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body class="dark:bg-gray-900 dark:text-white">
+  <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-800">
+    <div class="card w-96 bg-white dark:bg-gray-700 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title">KPM Client Installer</h2>
+        <div class="card-actions justify-center">
+          <button id="installBtn" class="btn btn-primary">Install</button>
+          <button id="uninstallBtn" class="btn btn-secondary">Uninstall</button>
+          <button id="updateBtn" class="btn btn-accent">Update</button>
+        </div>
+        <div id="output" class="mt-4 p-2 rounded">
+          <div id="consoleOutput" class="mockup-code">
+            <pre data-prefix="$"><code>Ready for action...</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Example script to toggle dark mode
+    const toggleDarkMode = () => {
+      document.documentElement.classList.toggle('dark');
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+      }
+    });
+  </script>
+  <script src="renderer.js"></script>
+</body>
+</html>

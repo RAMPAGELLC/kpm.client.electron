@@ -1,0 +1,50 @@
+{
+  "name": "kpm.client",
+  "version": "1.0.1",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc && npx tailwindcss -i ./src/ui/styles.css -o ./dist/ui/styles.css && copyfiles -u 1 src/ui/index.html dist/",
+    "build-electron": "electron-builder",
+    "build-prod": "npm run build && npx babel dist --out-dir dist --extensions \".ts,.js\" && npm run build-electron",
+    "dev": "npm run build && npx electron ."
+  },
+  "keywords": [
+    "kpm",
+    "package-manager",
+    "installer"
+  ],
+  "author": "RAMPAGE Interactive",
+  "license": "MIT",
+  "description": "Electron installer for KPM Client as an alternative installation method.",
+  "build": {
+    "appId": "com.rampage.kpmclientelectron",
+    "directories": {
+        "output": "release",
+        "buildResources": "dist"
+    },
+    "files": [
+      "**/*",
+      "dist/**/*",
+      "node_modules/**/*"
+    ],
+    "win": {
+      "target": "nsis"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.9",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-proposal-decorators": "^7.24.7",
+    "@babel/plugin-syntax-import-meta": "^7.10.4",
+    "@babel/preset-env": "^7.25.0",
+    "@babel/preset-typescript": "^7.24.7",
+    "autoprefixer": "^10.4.19",
+    "copyfiles": "^2.4.1",
+    "daisyui": "^4.12.10",
+    "electron": "^31.3.0",
+    "electron-builder": "^24.13.3",
+    "postcss": "^8.4.40",
+    "tailwindcss": "^3.4.7",
+    "typescript": "^5.5.4"
+  }
+}
